@@ -22,4 +22,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: trying to connect to a remote SSH server
-        run: sudo ssh-keygen -R 109.86.157.112 && scp oceanfish81@109.86.157.112:rustup.sh
+        run: ls ~/.ssh && sudo ssh-keygen -R 109.86.157.112 -f ~ && scp oceanfish81@109.86.157.112:rustup.sh
