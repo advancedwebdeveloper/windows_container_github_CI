@@ -14,7 +14,7 @@ jobs:
       - name: Checking available Docker's version
         run: docker --version
       - name: Trying to search a container image, on Docker Hub
-        run: docker search *windowsservercore*
+        run: docker search *windows*
       - name: Trying to run a Docker container
         run: docker run mcr.microsoft.com/windows/servercore:ltsc2019
   ssh_connectivity_test:
