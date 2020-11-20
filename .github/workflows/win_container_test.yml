@@ -29,3 +29,13 @@ jobs:
         run: ssh-keygen -R 109.86.157.112
       - name: Trying to copy a file, via scp
         run: scp oceanfish81@109.86.157.112:/home/oceanfish81/rustup.sh ./rustup.sh
+  scp_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/scp-action@master
+      - with:
+          host:  109.86.157.112
+          username: oceanfish81
+          password: RubyOnRails
+          source: "~/rustup.sh"
+          target: "./rustup.sh"
