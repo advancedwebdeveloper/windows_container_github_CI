@@ -1,0 +1,25 @@
+name: Windows Containers related test
+
+on:
+  create:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+  docker_test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checking available Docker's version
+        run: docker --version
+      - name: Trying to search a container image, on Docker Hub
+        run: docker search *windowsservercore*
+      - name: Trying to pull some Docker image
+        run: docker pull microsoft/windowsservercore
+  ssh_connectivity_test:
+    runs-on: windows_latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: trying to connect to a remote SSH server
+        run: export SSHPASS='RubyOnRails' && sshpass -e ssh oceanfish81@109.86.157.112
