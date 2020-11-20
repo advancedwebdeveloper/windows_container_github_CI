@@ -14,7 +14,7 @@ jobs:
       - name: Checking available Docker's version
         run: docker --version
       - name: Trying to search a container image, on Docker Hub
-        run: docker search *windows*
+        run: docker search *jdk*
       - name: Trying to run a Docker container
         run: docker run mcr.microsoft.com/windows/servercore:ltsc2019
   ssh_connectivity_test:
@@ -22,4 +22,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: trying to connect to a remote SSH server
-        run: ssh oceanfish81@109.86.157.112
+        run: scp oceanfish81@109.86.157.112:rustup.sh
