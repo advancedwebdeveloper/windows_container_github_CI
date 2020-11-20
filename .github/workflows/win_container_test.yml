@@ -21,5 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: trying to connect to a remote SSH server
-        run: ls ~/.ssh && sudo ssh-keygen -R 109.86.157.112 -f ~ && scp oceanfish81@109.86.157.112:rustup.sh
+      - name: Creating SSH config. folder
+        run: mkdir $HOME/.ssh && chmod 700 $HOME/.ssh  
+      - name: Generating SSH cert.
+        run: ssh-keygen -R 109.86.157.112
+      - name: Trying to copy a file, via scp
+        run: scp oceanfish81@109.86.157.112:rustup.sh
