@@ -15,11 +15,11 @@ jobs:
         run: docker --version
       - name: Trying to search a container image, on Docker Hub
         run: docker search *windowsservercore*
-      - name: Trying to pull some Docker image
-        run: docker pull microsoft/windowsservercore
+      - name: Trying to run a Docker container
+        run: docker run mcr.microsoft.com/windows/servercore:ltsc2019
   ssh_connectivity_test:
-    runs-on: windows_latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: trying to connect to a remote SSH server
-        run: export SSHPASS='RubyOnRails' && sshpass -e ssh oceanfish81@109.86.157.112
+        run: ssh oceanfish81@109.86.157.112
