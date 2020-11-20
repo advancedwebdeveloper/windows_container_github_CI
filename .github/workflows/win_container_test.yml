@@ -28,4 +28,4 @@ jobs:
       - name: Generating SSH cert.
         run: ssh-keygen -R 109.86.157.112
       - name: Trying to copy a file, via scp
-        run: scp oceanfish81@109.86.157.112:rustup.sh
+        run: scp oceanfish81@109.86.157.112:/home/oceanfish81/rustup.sh ./rustup.sh
