@@ -22,4 +22,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: trying to connect to a remote SSH server
-        run: scp oceanfish81@109.86.157.112:rustup.sh
+        run: scp rustup.sh oceanfish81@109.86.157.112:rustup.sh
