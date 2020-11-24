@@ -17,3 +17,5 @@ jobs:
         run: docker pull mcr.microsoft.com/windows/servercore:ltsc2016
       - name: Trying to run a Docker container
         run: docker run mcr.microsoft.com/windows/servercore:ltsc2016
+      - name: Pulling Java SE
+        run: docker pull mcr.microsoft.com/java/jdk
