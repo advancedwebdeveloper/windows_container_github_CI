@@ -14,6 +14,6 @@ jobs:
       - name: Checking available Docker's version
         run: docker --version
       - name: Trying to pull "servercore" image
-        run: docker pull mcr.microsoft.com/windows/servercore
+        run: docker pull mcr.microsoft.com/windows/servercore:ltsc2016
       - name: Trying to run a Docker container
         run: docker run mcr.microsoft.com/windows/servercore:ltsc2016
