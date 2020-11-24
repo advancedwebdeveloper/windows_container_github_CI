@@ -8,38 +8,12 @@ on:
     
 jobs:
   docker_test:
-    runs-on: windows-latest
+    runs-on: windows-2016
     steps:
       - uses: actions/checkout@v2
       - name: Checking available Docker's version
         run: docker --version
-      - name: Trying to search a container image, on Docker Hub
-        run: docker search *jdk*
+      - name: Trying to pull "servercore" image
+        run: docker pull mcr.microsoft.com/windows/servercore
       - name: Trying to run a Docker container
-        run: docker run mcr.microsoft.com/windows/servercore:ltsc2019
-  ssh_connectivity_test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Creating SSH config. folder
-        run: mkdir $HOME/.ssh && chmod 700 $HOME/.ssh  
-      - name: Popelate the list of known hosts
-        run: ssh-keyscan -H 109.86.157.112 >> ~/.ssh/known_hosts
-      - name: Generating SSH cert.
-        run: ssh-keygen -R 109.86.157.112
-      - name: Trying to copy a file, via scp
-        run: scp oceanfish81@109.86.157.112:/home/oceanfish81/rustup.sh ./rustup.sh
-  scp_test:
-    name: Copy remote file
-    runs-on: ubuntu-latest
-    steps:
-      
-      - uses: actions/checkout@master
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master  
-        with:
-          host:  109.86.157.112
-          username: oceanfish81
-          password: RubyOnRails
-          source: "~/rustup.sh"
-          target: "./rustup.sh"
+        run: docker run mcr.microsoft.com/windows/servercore:ltsc2016
